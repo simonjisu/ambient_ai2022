@@ -9,6 +9,10 @@ matplotlib = "*"
 scikit-learn = "*"
 ipykernel = "*"
 pydot = "*"
+opencv-python = "*"
+tqdm = "*"
+pycocotools = "*"
+pandas = "*"
 
 [dev-packages]
 
