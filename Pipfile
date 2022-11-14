@@ -13,6 +13,7 @@ opencv-python = "*"
 tqdm = "*"
 pycocotools = "*"
 pandas = "*"
+numpy = "*"
 
 [dev-packages]
 
