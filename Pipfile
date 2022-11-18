@@ -14,6 +14,8 @@ tqdm = "*"
 pycocotools = "*"
 pandas = "*"
 numpy = "*"
+seaborn = "*"
+hvplot = "*"
 
 [dev-packages]
 
