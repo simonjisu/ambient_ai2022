@@ -4,18 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-tensorflow = "*"
-matplotlib = "*"
-scikit-learn = "*"
-ipykernel = "*"
-pydot = "*"
+mediapipe = "*"
 opencv-python = "*"
-tqdm = "*"
-pycocotools = "*"
-pandas = "*"
-numpy = "*"
-seaborn = "*"
-hvplot = "*"
+ipykernel = "*"
 
 [dev-packages]
 
