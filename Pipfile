@@ -7,8 +7,13 @@ name = "pypi"
 mediapipe = "*"
 opencv-python = "*"
 ipykernel = "*"
+moviepy = "*"
+streamlit = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.10"
+
+[pipenv]
+allow_prereleases = false
