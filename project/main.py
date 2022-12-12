@@ -1,12 +1,11 @@
-import streamlit as st
+
 import cv2
-import numpy as np
-from pathlib import Path
-# import tempfile
-import mediapipe as mp
 import time
+import numpy as np
+import mediapipe as mp
+import streamlit as st
+from pathlib import Path
 from moviepy.editor import VideoFileClip
-# https://mpolinowski.github.io/docs/IoT-and-Machine-Learning/ML/2021-11-03--streamlit-opencv-mediapipe/2021-11-03/#face-landmark-detection
 
 st.set_page_config(
     page_title='Rehabilitation Treatment Guide System',
@@ -39,7 +38,6 @@ Please, first look at the following short video, then start to train!
 * `Do not start`: If you check this box, you will always not start the training program. For Debugging.
 ''')
 with st.sidebar:
-    
     TASK = st.selectbox('choose task', options=TASKS, key='task')
     INFERENCE_FREQ = st.select_slider('Inference frequency(IF)', options=[1, 3, 5, 7, 10, 15], value=5, key='inference_freq')
     ANGLE_THRES = st.slider('Angle Threshold', 1.5, 10.0, value=3.5, step=0.1, key='angle_thres')
@@ -205,7 +203,6 @@ fps = 0
 i = 0
 
 START_SET = st.sidebar.button('START A SET')
-RESTART_SET = st.sidebar.button('RESTART')
 fps_text = st.sidebar.markdown('')
 
 INFOS, BOX = get_cemara_information(
@@ -346,11 +343,6 @@ if START_SET:
 
         FIT_BOX = False
 
-    if RESTART_SET:
-        wait_video = cv2.VideoCapture(str(VIDEO_PATH / 'intermediate.mp4'))
-        gold_video = cv2.VideoCapture(str(VIDEO_PATH / (VIDEO_DICT[TASK] + '_crop_720p.mp4')))
-        FIT_BOX = True
-    
 else:
     video_file = str(VIDEO_PATH / (VIDEO_DICT[TASK] + '.mp4'))
     _, col, _ = st.columns([1, 2, 1])

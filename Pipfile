@@ -9,7 +9,6 @@ opencv-python = "*"
 ipykernel = "*"
 moviepy = "*"
 streamlit = "*"
-streamlit-webrtc = "*"
 
 [dev-packages]
 
