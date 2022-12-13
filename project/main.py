@@ -36,10 +36,18 @@ Please, first look at the following short video, then start to train!
 * `Box Padding`: Number of padding pixels to start based on TARGET person bounding box
 * `Left Arm`: Check if you want to train the left arm
 * `Do not start`: If you check this box, you will always not start the training program. For Debugging.
+
+## Metrics
+
+$$\\text{match accuracy} = \\dfrac{\sum_i^n \\vert AD_{\\text{USER}} - AD_{\\text{TARGET}} \\vert \le \\theta }{n_{\\text{Frames}}}$$
+
+* Compare the difference angle degree($AD$) between USER and TARGET, if it is in the threshold($\\theta$), then count it as correct.
+* The problem of the metric: two frames have same semantic meaning but they are in the different time stamp.
+
 ''')
 with st.sidebar:
     TASK = st.selectbox('choose task', options=TASKS, key='task')
-    INFERENCE_FREQ = st.select_slider('Inference frequency(IF)', options=[1, 3, 5, 7, 10, 15], value=5, key='inference_freq')
+    INFERENCE_FREQ = st.select_slider('Inference frequency(IF)', options=[1, 3, 5, 7, 10, 15], value=7, key='inference_freq')
     ANGLE_THRES = st.slider('Angle Threshold', 1.5, 10.0, value=3.5, step=0.1, key='angle_thres')
     BOX_PADDING = st.select_slider('Box Padding', options=[15, 30, 45], value=30, key='box_padding')
     LEFT_ARM = st.checkbox('Left Arm?', value=False, key='left_arm')
